@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "servo": "*"
+        "servo": "*",
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.3"
     },
     "files": [
         "main.blocks",
@@ -16,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.0.16",
+        "target": "5.0.12",
         "targetId": "microbit"
     },
     "supportedTargets": [
