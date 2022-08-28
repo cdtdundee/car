@@ -1,28 +1,21 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
-        music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
-        servos.P2.run(50)
-        servos.P1.run(-52)
+        pins.analogWritePin(AnalogPin.P0, 100)
     }
     if (receivedNumber == 1) {
-        music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
-        servos.P1.run(50)
-        servos.P2.run(-52)
+        pins.analogWritePin(AnalogPin.P0, 1000)
+    }
+    if (receivedNumber == 5) {
+        pins.analogWritePin(AnalogPin.P0, 500)
     }
     if (receivedNumber == 2) {
-        music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
-        servos.P1.run(24)
-        servos.P2.run(11)
+        servos.P1.setAngle(0)
     }
     if (receivedNumber == 3) {
-        music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
-        servos.P1.run(-13)
-        servos.P2.run(-24)
+        servos.P1.setAngle(180)
     }
     if (receivedNumber == 4) {
-        music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
-        servos.P1.run(0)
-        servos.P2.run(0)
+        pins.digitalWritePin(DigitalPin.P0, 0)
     }
 })
 input.onButtonPressed(Button.A, function () {
@@ -33,6 +26,9 @@ input.onGesture(Gesture.LogoUp, function () {
 })
 input.onGesture(Gesture.TiltLeft, function () {
     radio.sendNumber(2)
+})
+input.onGesture(Gesture.ScreenUp, function () {
+    radio.sendNumber(5)
 })
 input.onGesture(Gesture.TiltRight, function () {
     radio.sendNumber(3)
